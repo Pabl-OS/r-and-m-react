@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <NextUIProvider>
-          <main className="w-screen h-screen dark text-foreground bg-background p-8 ">
+          <main className="w-screen h-screen dark text-foreground bg-background  ">
             <App />
           </main>
         </NextUIProvider>

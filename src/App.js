@@ -7,7 +7,10 @@ function App() {
   return (
     <>
       <Header />
-      <AppRouter />
+      
+      <div className='container mx-auto p-5'>
+          <AppRouter />
+      </div>
     </>
   );
 }

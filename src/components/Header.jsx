@@ -1,24 +1,10 @@
 import React from 'react'
-import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Divider} from "@nextui-org/react";
+import { NavLink } from 'react-router-dom';
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-    const menuItems = [
-      "Profile",
-      "Dashboard",
-      "Activity",
-      "Analytics",
-      "System",
-      "Deployments",
-      "My Settings",
-      "Team Settings",
-      "Help & Feedback",
-      "Log Out",
-    ];
-
   return (
   <Navbar
-      isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
@@ -26,61 +12,46 @@ export const Header = () => {
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden pr-3" justify="center">
+      <NavbarContent className="sm:hidden pr-3 bg-transparent" justify="center">
         <NavbarBrand>
 
-          <p className="font-bold text-inherit">POKEDEX</p>
+          <p className="font-bold text-inherit">RICK & MORTY</p>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
+          <p className="font-bold text-inherit  lg:text-2xl">RICK & MORTY</p>
 
-          <p className="font-bold text-inherit">POKEDEX</p>
+
         </NavbarBrand>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Personajes
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Ubicaciones
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Episodios
-          </Link>
-        </NavbarItem>
+          <NavLink  to="character" className={({ isActive }) => isActive ? "font-bold lg:text-lg" : "lg:text-lg" }> Personajes </NavLink>
+          <NavLink  to="episodies" className={({ isActive }) => isActive ? "font-bold lg:text-lg" : "lg:text-lg" }> Episodios </NavLink>
+          <NavLink  to="locations" className={({ isActive }) => isActive ? "font-bold lg:text-lg" : "lg:text-lg" }> Localizaciones </NavLink>
       </NavbarContent>
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
           <Link href="#">Login</Link>
         </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="warning" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
+
       </NavbarContent>
 
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
+      <NavbarMenu className='bg-transparent' >
+
+          <NavbarMenuItem >
+            <NavLink  to="character" className={({ isActive }) => isActive ? "font-bold text-3xl text-white" : "text-2xl text-white" }> Personajes </NavLink>
           </NavbarMenuItem>
-        ))}
+          <Divider className='bg-white/10' />
+          <NavbarMenuItem > 
+            <NavLink  to="episodies" className={({ isActive }) => isActive ? "font-bold text-3xl text-white" : "text-2xl text-white" }> Episodios </NavLink>
+          </NavbarMenuItem>
+          <Divider className='bg-white/10' />
+          <NavbarItem>
+            <NavLink  to="locations" className={({ isActive }) => isActive ? "font-bold text-3xl text-white" : "text-2xl text-white" }> Localizaciones </NavLink>
+          </NavbarItem>
+          
+
       </NavbarMenu>
     </Navbar>
   )
