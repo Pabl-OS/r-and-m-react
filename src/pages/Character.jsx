@@ -1,5 +1,5 @@
 import React from 'react'
-import {CardBody, CardHeader, Input, Pagination} from "@nextui-org/react";
+import {Button, CardBody, CardHeader, Input, Pagination} from "@nextui-org/react";
 import { SearchIcon } from '../components/Searchicon'
 import {Card, CardFooter, Image} from "@nextui-org/react";
 import { Link } from 'react-router-dom';
@@ -44,19 +44,19 @@ export const Character = () => {
       </div>
 
       <div class="grid lg:grid-cols-4 md:grid-cols-2  grid-cols-1 gap-4 mt-3 flex justify-center">
-            { [1].map((employee, index) => {
+            { [1,2,3,4].map((employee, index) => {
               return (
                 <div className='mt-4'>
                   <Card className="py-4 m-auto  max-w-sm">
                         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                          <p className="text-tiny uppercase font-bold">Character</p>
-                          <h4 className="font-bold text-4xl text-large mt-2 mb-2 underline decoration-pink-500">Rick Sanchez</h4>
-                          <small className="text-default-500">Earth</small>
+                          <p className="text-md uppercase font-bold">Character</p>
+                          <h4 className="font-bold text-6xl text-large mt-2 mb-2 underline decoration-pink-500">Rick Sanchez</h4>
+                          <small className="text-default-500 text-lg">Earth</small>
                         </CardHeader>
-                        <CardBody className="overflow-visible py-2">
+                        <CardBody className="overflow-visible py-2 mt-3">
                           <Image
                             alt="Card background"
-                            className="object-cover rounded-xl"
+                            className="object-cover  rounded-xl h-55 w-96"
                             isZoomed
                             isBlurred
                             src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
@@ -64,13 +64,11 @@ export const Character = () => {
                           />
                         </CardBody>
                         <CardFooter>
-                      <Link
-                        isExternal
-                        showAnchorIcon
-                        href="https://github.com/nextui-org/nextui"
-                      >
-                        Visit source code on GitHub.
-                      </Link>
+                 
+                            <Button color="warning" variant="bordered" className='w-64'>
+                              Ver detalle
+                            </Button>
+              
                     </CardFooter>
                   </Card>
                 </div>
